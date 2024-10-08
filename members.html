@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- By Ian Macharia   13:53:02 GMT -->
+
+<head>
+
+    <meta charset="utf-8" />
+   <title>Hospital Management Information System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Keep your finances and membership up to date" name="description" />
+    <meta content="Ian Macharia -" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.svg">
+    <!-- droping file -->
+    <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/libs/%40chenfengyuan/datepicker/datepicker.min.css">
+
+    <!-- DataTables -->
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap select styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="assets/css/custom.css" id="app-style" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body data-sidebar="dark">
+
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-chase">
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Begin page -->
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="index.html" class="logo logo-dark">
+                            <span class="logo-sm">
+                                    <img src="assets/images/logo.svg" alt="" height="22">
+                                </span>
+                            <span class="logo-lg">
+                                    <img src="assets/images/logo-dark.png" alt="" height="17">
+                                </span>
+                        </a>
+
+                        <a href="index.html" class="logo logo-light">
+                            <span class="logo-sm">
+                                    <img src="assets/images/the-logo.png" alt="" height="50">
+                                </span>
+                            <span class="logo-lg">
+                                    <img src="assets/images/logo-text-white.png" alt="" height="45">
+                                </span>
+                        </a>
+                    </div>
+
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    <!-- logo small -->
+                    <div class="phone-logo d-md-none d-sm-flex"> <img src="assets/images/color-log0.svg" alt="" class="img"></div>
+
+
+
+                    <!-- App Search-->
+                    <form class="app-search d-none d-lg-block">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="bx bx-search-alt"></span>
+                        </div>
+                    </form>
+
+
+                </div>
+
+                <div class="d-flex">
+                    <!-- small search -->
+                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
+
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                                <i class="bx bx-fullscreen"></i>
+                            </button>
+                    </div>
+
+                    <div class="dropdown d-inline-block d-none">
+
+                        <!-- notifications, i will come to this later -->
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bx bx-bell bx-tada"></i>
+                                <span class="badge bg-danger rounded-pill">3</span>
+                            </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h6 class="m-0" key="t-notifications"> Notifications </h6>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="#!" class="small" key="t-view-all"> View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-simplebar style="max-height: 230px;">
+                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <div class="avatar-xs me-3">
+                                            <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="bx bx-cart"></i>
+                                                </span>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1" key="t-your-order">Your order is placed</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <img src="assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">James Lemire</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1" key="t-simplified">It will seem like simplified English.</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <div class="avatar-xs me-3">
+                                            <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                    <i class="bx bx-badge-check"></i>
+                                                </span>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1" key="t-shipped">Your item is shipped</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <img src="assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Salena Layfield</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1" key="t-occidental">As a skeptical Cambridge friend of mine occidental.</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="p-2 border-top d-grid">
+                                <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                    <i class="mdi mdi-arrow-right-circle me-1"></i> <span key="t-view-more">View More..</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">Adroa Balinda</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a class="dropdown-item" href="myprofile.html"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">My Profile</span></a>
+                            <a class="dropdown-item" href="my-logs.html"><i class="bx bx-time font-size-16 align-middle me-1"></i> <span key="t-profile">My Logs</span></a>
+                            <a class="dropdown-item" href="auth-lock-screen.html"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="auth-login.html"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== Left Sidebar Start ========== -->
+       <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled text-capitalize" id="side-menu">
+                        <li class="menu-title" key="t-pages">Hospital Management Information system </li>
+
+                        <li class="side-bar-button" >
+                            <a href="bill-new.html" class="waves-effect btn btn-light btn-rounded text-left write-msg-btn">
+                                <i class=""><img src="assets/images/plus-icon.svg" alt=""></i>
+                                <span class="text-capitalize">Patient Chekin</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html" class="waves-effect">
+                                <i class="bx bx-home-circle"></i><span>Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="patient-new.html" class="waves-effect">
+                                <i class="mdi mdi-text-box-plus-outline"></i><span>Add Patient</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="patients.html" class="waves-effect">
+                                <i class="mdi mdi-card-account-details-outline"></i><span>Master Patient Index</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi-human-queue mdi"></i>
+                                <span>Patient's Queue</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="queue-triage.html">Triage</a></li>
+                                <li><a href="queue-OPD.html">Consaltation </a></li>
+                                <li><a href="queue-cashier.html">Cashier </a></li>
+                                <li><a href="queue-lab-schedule.html">Scheduled lab Tests</a></li>
+                                <li><a href="queue-ongoing-schedule.html">Ongoing lab Tests</a></li>
+                                <li><a href="queue-test-interpratation-schedule.html">Lab Test Interpratation</a></li>
+                                <li><a href="queue-scan-exam-schedule.html">Scheduled Scan Exams</a></li>
+                                <li><a href="queue-scan-exam-ongoing.html">Ongoing Scan Exams</a></li>
+                                <li><a href="queue-scan-exam-interpratation.html">Scan exam Interpratation</a></li>
+                                <li><a href="queue-pharmacey.html">Pharmacy</a></li>
+
+                            </ul>
+                        </li>
+
+                         <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi-calendar-month mdi"></i>
+                                <span>Appointments</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="appointments-pending.html">Pending Appointments</a></li>
+                                <li><a href="appointments-fullfiled.html">Fullfiled AAppointments</a></li>
+                                <li><a href="appointments-due.html">Due Appointments</a></li>
+                            </ul>
+                        </li>
+                         <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi-clipboard-edit mdi"></i>
+                                <span>Stock Management</span>
+                            </a>
+                            <ul class="sub-menu text-capitalize" aria-expanded="false">
+                                <li><a href="stock-ordering.html">Stock Enquiry</a></li>
+                                <li><a href="stock-taking.html">Stock Taking</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi-cog-outline mdi"></i>
+                                <span>Setups</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="set-up-departments.html">Departments</a></li>
+                                <li><a href="set-up-pricing.html">Pricing & Charges</a></li>
+                                <li><a href="set-up-equipments.html">Equipments</a></li>
+                                <li><a href="set-up-wards.html">Ward Set Up</a></li>
+                                <li><a href="set-up-bed.html">Beds Setup</a></li>
+                                <li><a href="set-Pharmacy.html">Pharmacy inventory</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-title" key="t-pages">Reports</li>
+
+                        <li>
+                            <a href="reports-outpatient.html" class="waves-effect">
+                                <i class="bx bx-clinic"></i><span>Outpatient Reports</span>
+                            </a>
+                        </li>
+
+                         <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi mdi-clipboard-text-outline"></i>
+                                <span>Stock Reports</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="stock-daily-rep.html">Daily Reports</a></li>
+                                <li><a href="stock-manual-exits.html">Manual Exits</a></li>
+                                <li><a href="stock-order-enquarry.html">Order Enquarries</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="reports-inpatient.html" class="waves-effect">
+                                <i class="mdi mdi-bed-outline"></i><span>Inpatient Reports</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports-revenue-streams.html" class="waves-effect">
+                                <i class="mdi mdi-bank-transfer"></i><span>Revenue Perfomance</span>
+                            </a>
+                        </li>
+
+                      <li>
+                            <a href="reports-physician.html" class="waves-effect">
+                                <i class="mdi mdi-doctor"></i><span>Physician Reports</span>
+                            </a>
+                        </li>
+
+                        <li class="d-none">
+                            <a href="reports-physician.html" class="waves-effect">
+                                <i class="mdi mdi-office-building"></i><span>Departmental Reports</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="bx bx-receipt"></i>
+                                <span>Bills</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+
+                                <li><a href="bills-receipted.html">Receipted Bills</a></li>
+                                <li><a href="bills-unpaid.html">Unpaid Bills</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="menu-title" key="t-pages"></li>
+
+                        <li class="d-none">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="bx bx-file"></i>
+                                <span>Reports</span>
+                            </a>
+                            <ul class="sub-menu text-capitalize" aria-expanded="false">
+                                <li><a href="reports-conty.html">Revenus By County</a></li>
+                                <li class=""><a href="reports-debtors.html">Debtors</a></li>
+                                <li class=""><a href="reports-sources.html">Revenue sources</a></li>
+                                <li class="text-capitalize"><a href="reports-transactions.html">Transactions</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="d-none">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="bx bx-slider"></i>
+                                <span>Settings & Setups</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="finance-act.html">Finance atc</a></li>
+                                <li><a href="set-roads.html">Roads</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi mdi-monitor-multiple"></i>
+                                <span>System Users</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="user-userlist.html">System Users</a></li>
+                                <li><a href="user-registration.html">Add a system user</a></li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+
+
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0 font-size-18">All Members</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Analytics</a></li>
+                                        <li class="breadcrumb-item active">All members</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header bg-white pt-0 pr-0 p-0 d-flex justify-content-between align-items-center w-100 border-bottom">
+
+                                    <div class="btn-toolbar p-3 d-flex justify-content-between align-items-center w-100" role="toolbar">
+                                        <div class="d-flex align-items-center flex-grow-1">
+                                            <div class="btn-group pr-3" role="group" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="msg-type-filter" value="" id="btn-allmsgs" autocomplete="off" checked="">
+                                                <label class="btn btn-primary mb-0 waves-light waves-effect" for="btn-allmsgs"><span class="d-inline">All</span></label>
+
+                                                <input type="radio" class="btn-check" value="SMS" name="msg-type-filter" id="btn-sms" autocomplete="off">
+                                                <label class="btn btn-primary mb-0 waves-light waves-effect" for="btn-sms"><i class="mdi mdi-account-multiple-check  font-size-16"></i><span class="pl-1 d-none d-lg-inline d-md-inline">Compliant</span></label>
+
+                                                <input type="radio" class="btn-check" value="Email" name="msg-type-filter" id="btn-email" autocomplete="off">
+                                                <label class="btn btn-primary mb-0 waves-light waves-effect" for="btn-email"><i class="mdi mdi-account-multiple-remove  font-size-16"></i><span class="pl-1 d-none d-lg-inline d-md-inline">With penalties</span></label>
+
+
+
+                                            </div>
+
+                                            <select class="form-control selectpicker w-auto" data-style="btn btn-secondary" data-live-search="true" title="Select the property">
+                                                <option value="" selected>All Members</option>
+                                                <option value="">Members with multiple trucks</option>
+                                                <option value="">Members with a single truck</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <a href="members-new.html" type="button" class="btn btn-primary dropdown-toggle option-selector">
+                                                <i class="mdi  mdi-account-multiple-plus  font-size-16"></i> <span class="pl-1 d-md-inline">Add A Member</span>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="btn-toolbar p-3 align-items-center d-none animated delete-tool-bar" role="toolbar">
+                                        <button type="button" class="btn btn-secondary waves-effect btn-label waves-light me-3 write-msg-btn"><i class="mdi mdi-pencil align-middle me-2 label-icon"></i> Message Selected Member(s)</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table align-middle table-nowrap table-hover dt-responsive contacts-table" id="datatable-buttons">
+                                        <thead class="table-dark">
+                                            <tr>
+
+                                                <th scope="col" style="width:70px">
+                                                    <div class="the-mail-checkbox pr-4">
+                                                        <label for="selectAll" class="d-none">Select All</label>
+                                                        <input class="form-check-input mt-0 pt-0 form-check-dark" type="checkbox" id="selectAll">
+
+                                                    </div>
+                                                </th>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Member</th>
+                                                <th scope="col">Contacts</th>
+                                                <th scope="col">Truck(s)</th>
+                                                <th scope="col">Active licenses</th>
+                                                <th scope="col" class="text-right">Monthly Payable</th>
+                                                <th scope="col" class="text-right">Reducing Bal.</th>
+                                                <th scope="col" class="text-right">Penalties</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot class="table-dark">
+                                            <tr>
+                                                <td>
+
+                                                </td>
+                                                <td class="text-capitalize" colspan="3">22 Members</td>
+                                                <td>22 Trucks</td>
+                                                <td>12 licenses</td>
+                                                <td class="text-right text-uppercase">
+                                                    KES 23,000
+                                                </td>
+
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-danger fw-semibold">KES 19,000</span>
+                                                </td>
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+
+                                                <td>
+                                                    <div class="d-flex  align-items-center">
+                                                        <div class="the-mail-checkbox pr-4">
+                                                            <input class="form-check-input mt-0 pt-0 form-check-dark" type="checkbox" id="formCheck1">
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+                                                <td class="text-capitalize">1.</td>
+                                                <td class="text-capitalize">
+                                                    <a href="member-details.html" title="View Details">Ian Macharia</a>
+                                                    <p class="mb-0 pb-0">
+                                                        <small>Member No. 1234568</small>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-muted mb-0">
+                                                        <a href="tell:0704549859">0704549859</a>
+                                                    </p>
+                                                    <p class="mb-0 pb-0">
+                                                        <a href="mailto:email@email.com">email@email.com</a>
+                                                    </p>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <a href="truck-details.html">KAD 678U</a>
+                                                </td>
+                                                <td>1</td>
+                                                <td class="text-right text-uppercase">
+                                                    KES 2,000
+                                                </td>
+
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-danger fw-semibold">KES 1,000</span>
+                                                </td>
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-end text-capitalize">
+                                                            <a class="dropdown-item" href="member-details.html"><i class="font-size-15 mdi mdi-eye-plus-outline me-3"></i>Detailed view</a>
+                                                            <a class="dropdown-item" href="members-new.html"><i class="font-size-15 mdi mdi-account-edit me-3"></i>Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="font-size-15 mdi mdi-account-arrow-right me-3"></i>Receipt payment</a>
+                                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target=".statements-modal"><i class="font-size-15  mdi mdi-printer me-3"></i>Member Statements</a>
+                                                            <a class="dropdown-item write-msg-btn" href="#"><i class="font-size-15  mdi mdi-chat me-3 "></i>Message Member</a>
+                                                            <a class="dropdown-item text-capitalize" data-bs-toggle="modal" data-bs-target=".distress-modal" href="#"><i class="font-size-15 mdi  mdi-cancel me-3 text-danger"></i>Initiate distress</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <div class="d-flex  align-items-center">
+                                                        <div class="the-mail-checkbox pr-4">
+                                                            <input class="form-check-input mt-0 pt-0 form-check-dark" type="checkbox" id="formCheck1">
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+                                                <td class="text-capitalize">2.</td>
+                                                <td class="text-capitalize">
+                                                    <a href="member-details.html" title="View Details">Humphrey Luchetu</a>
+                                                    <p class="mb-0 pb-0">
+                                                        <small>Member No. 123</small>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-muted mb-0">
+                                                        <a href="tell:0704549859">0704549859</a>
+                                                    </p>
+                                                    <p class="mb-0 pb-0">
+                                                        <a href="mailto:email@email.com">email@email.com</a>
+                                                    </p>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <a href="truck-details.html">KBC 567Y</a>
+                                                </td>
+                                                <td>1</td>
+                                                <td class="text-right text-uppercase">
+                                                    KES 2,000
+                                                </td>
+
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-end text-capitalize">
+                                                            <a class="dropdown-item" href="member-details.html"><i class="font-size-15 mdi mdi-eye-plus-outline me-3"></i>Detailed view</a>
+                                                            <a class="dropdown-item" href="members-new.html"><i class="font-size-15 mdi mdi-account-edit me-3"></i>Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="font-size-15 mdi mdi-account-arrow-right me-3"></i>Receipt payment</a>
+                                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target=".statements-modal"><i class="font-size-15  mdi mdi-printer me-3"></i>Member Statements</a>
+                                                            <a class="dropdown-item write-msg-btn" href="#"><i class="font-size-15  mdi mdi-chat me-3 "></i>Message Member</a>
+                                                            <a class="dropdown-item text-capitalize" data-bs-toggle="modal" data-bs-target=".distress-modal" href="#"><i class="font-size-15 mdi  mdi-cancel me-3 text-danger"></i>Initiate distress</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <div class="d-flex  align-items-center">
+                                                        <div class="the-mail-checkbox pr-4">
+                                                            <input class="form-check-input mt-0 pt-0 form-check-dark" type="checkbox" id="formCheck1">
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+                                                <td class="text-capitalize">3.</td>
+                                                <td class="text-capitalize">
+                                                    <a href="member-details.html" title="View Details">Cleophas -</a>
+                                                    <p class="mb-0 pb-0">
+                                                        <small>Member No. 1234568</small>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-muted mb-0">
+                                                        <a href="tell:0704549859">0704549859</a>
+                                                    </p>
+                                                    <p class="mb-0 pb-0">
+                                                        <a href="mailto:email@email.com">email@email.com</a>
+                                                    </p>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <a href="">3 Trucks</a>
+                                                </td>
+                                                <td>3</td>
+                                                <td class="text-right text-uppercase">
+                                                    KES 6,000
+                                                </td>
+
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-danger fw-semibold">KES 4,000</span>
+                                                </td>
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-end text-capitalize">
+                                                            <a class="dropdown-item" href="member-details.html"><i class="font-size-15 mdi mdi-eye-plus-outline me-3"></i>Detailed view</a>
+                                                            <a class="dropdown-item" href="members-new.html"><i class="font-size-15 mdi mdi-account-edit me-3"></i>Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="font-size-15 mdi mdi-account-arrow-right me-3"></i>Receipt payment</a>
+                                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target=".statements-modal"><i class="font-size-15  mdi mdi-printer me-3"></i>Member Statements</a>
+                                                            <a class="dropdown-item write-msg-btn" href="#"><i class="font-size-15  mdi mdi-chat me-3 "></i>Message Member</a>
+                                                            <a class="dropdown-item text-capitalize" data-bs-toggle="modal" data-bs-target=".distress-modal" href="#"><i class="font-size-15 mdi  mdi-cancel me-3 text-danger"></i>Initiate distress</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <div class="d-flex  align-items-center">
+                                                        <div class="the-mail-checkbox pr-4">
+                                                            <input class="form-check-input mt-0 pt-0 form-check-dark" type="checkbox" id="formCheck1">
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+                                                <td class="text-capitalize">4.</td>
+                                                <td class="text-capitalize">
+                                                    <a href="member-details.html" title="View Details">Caleb Mumo</a>
+                                                    <p class="mb-0 pb-0">
+                                                        <small>Member No. 1234568</small>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-muted mb-0">
+                                                        <a href="tell:0704549859">0704549859</a>
+                                                    </p>
+                                                    <p class="mb-0 pb-0">
+                                                        <a href="mailto:email@email.com">email@email.com</a>
+                                                    </p>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <a href="#">2 Trucks</a>
+                                                </td>
+                                                <td>1</td>
+                                                <td class="text-right text-uppercase">
+                                                    KES 2,000
+                                                </td>
+
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-danger fw-semibold">KES 200</span>
+                                                </td>
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-end text-capitalize">
+                                                            <a class="dropdown-item" href="member-details.html"><i class="font-size-15 mdi mdi-eye-plus-outline me-3"></i>Detailed view</a>
+                                                            <a class="dropdown-item" href="members-new.html"><i class="font-size-15 mdi mdi-account-edit me-3"></i>Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="font-size-15 mdi mdi-account-arrow-right me-3"></i>Receipt payment</a>
+                                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target=".statements-modal"><i class="font-size-15  mdi mdi-printer me-3"></i>Member Statements</a>
+                                                            <a class="dropdown-item write-msg-btn" href="#"><i class="font-size-15  mdi mdi-chat me-3 "></i>Message Member</a>
+                                                            <a class="dropdown-item text-capitalize" data-bs-toggle="modal" data-bs-target=".distress-modal" href="#"><i class="font-size-15 mdi  mdi-cancel me-3 text-danger"></i>Initiate distress</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <div class="d-flex  align-items-center">
+                                                        <div class="the-mail-checkbox pr-4">
+                                                            <input class="form-check-input mt-0 pt-0 form-check-dark" type="checkbox" id="formCheck1">
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+                                                <td class="text-capitalize">5.</td>
+                                                <td class="text-capitalize">
+                                                    <a href="member-details.html" title="View Details">Roney Ronny</a>
+                                                    <p class="mb-0 pb-0">
+                                                        <small>Member No. 1234568</small>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-muted mb-0">
+                                                        <a href="tell:0704549859">0704549859</a>
+                                                    </p>
+                                                    <p class="mb-0 pb-0">
+                                                        <a href="mailto:email@email.com">email@email.com</a>
+                                                    </p>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <a href="truck-details.html">KAT 146Y</a>
+                                                </td>
+                                                <td>1</td>
+                                                <td class="text-right text-uppercase">
+                                                    KES 2,000
+                                                </td>
+
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-end text-capitalize">
+                                                            <a class="dropdown-item" href="member-details.html"><i class="font-size-15 mdi mdi-eye-plus-outline me-3"></i>Detailed view</a>
+                                                            <a class="dropdown-item" href="members-new.html"><i class="font-size-15 mdi mdi-account-edit me-3"></i>Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="font-size-15 mdi mdi-account-arrow-right me-3"></i>Receipt payment</a>
+                                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target=".statements-modal"><i class="font-size-15  mdi mdi-printer me-3"></i>Member Statements</a>
+                                                            <a class="dropdown-item write-msg-btn" href="#"><i class="font-size-15  mdi mdi-chat me-3 "></i>Message Member</a>
+                                                            <a class="dropdown-item text-capitalize" data-bs-toggle="modal" data-bs-target=".distress-modal" href="#"><i class="font-size-15 mdi  mdi-cancel me-3 text-danger"></i>Initiate distress</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <div class="d-flex  align-items-center">
+                                                        <div class="the-mail-checkbox pr-4">
+                                                            <input class="form-check-input mt-0 pt-0 form-check-dark" type="checkbox" id="formCheck1">
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+                                                <td class="text-capitalize">6.</td>
+                                                <td class="text-capitalize">
+                                                    <a href="member-details.html" title="View Details">Wekesa Wekesa</a>
+                                                    <p class="mb-0 pb-0">
+                                                        <small>Member No. 1234568</small>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-muted mb-0">
+                                                        <a href="tell:0704549859">0704549859</a>
+                                                    </p>
+                                                    <p class="mb-0 pb-0">
+                                                        <a href="mailto:email@email.com">email@email.com</a>
+                                                    </p>
+                                                </td>
+                                                <td class="text-capitalize">
+                                                    <a href="truck-details.html">KDD 676R</a>
+                                                </td>
+                                                <td>1</td>
+                                                <td class="text-right text-uppercase">
+                                                    KES 2,000
+                                                </td>
+
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-success fw-semibold">+ KES 6,300</span>
+                                                </td>
+                                                <td class="text-black text-uppercase text-right">
+                                                    <span class="text-info fw-semibold">KES 0.00</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </a>
+
+                                                        <div class="dropdown-menu dropdown-menu-end text-capitalize">
+                                                            <a class="dropdown-item" href="member-details.html"><i class="font-size-15 mdi mdi-eye-plus-outline me-3"></i>Detailed view</a>
+                                                            <a class="dropdown-item" href="members-new.html"><i class="font-size-15 mdi mdi-account-edit me-3"></i>Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="font-size-15 mdi mdi-account-arrow-right me-3"></i>Receipt payment</a>
+                                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target=".statements-modal"><i class="font-size-15  mdi mdi-printer me-3"></i>Member Statements</a>
+                                                            <a class="dropdown-item write-msg-btn" href="#"><i class="font-size-15  mdi mdi-chat me-3 "></i>Message Member</a>
+                                                            <a class="dropdown-item text-capitalize" data-bs-toggle="modal" data-bs-target=".distress-modal" href="#"><i class="font-size-15 mdi  mdi-cancel me-3 text-danger"></i>Initiate distress</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+
+
+
+
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+
+            <footer class="footer ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-sm-6 ">
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © MediFlow
+                        </div>
+                        <div class="col-sm-6 ">
+                            <div class="text-sm-end d-sm-block ">
+                                MediFlow Billing system.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay "></div>
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js "></script>
+    <script src="assets/libs/simplebar/simplebar.min.js "></script>
+    <script src="assets/libs/node-waves/waves.min.js "></script>
+
+    <script src="assets/libs/select2/js/select2.min.js "></script>
+    <script src="assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js "></script>
+    <script src="assets/libs/spectrum-colorpicker2/spectrum.min.js "></script>
+    <script src="assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js "></script>
+    <script src="assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js "></script>
+    <script src="assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js "></script>
+    <script src="assets/libs/%40chenfengyuan/datepicker/datepicker.min.js "></script>
+
+
+
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="assets/libs/jszip/jszip.min.js"></script>
+    <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <!-- numerals number formater -->
+    <script src="assets/libs/numeral/numeral.js "></script>
+
+    <!-- Responsive examples -->
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Bootstrap select -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <!-- Plugins js -->
+    <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
+    <!-- Datatable init js -->
+    <script src="assets/js/pages/datatables.init.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+
+<!-- By Ian Macharia   13:55:49 GMT -->
+
+</html>

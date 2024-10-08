@@ -1,0 +1,2561 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- By Ian Macharia   13:53:02 GMT -->
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>HOSPITAL MANAGEMENT INFORMATION SYSTEM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Rental management system by Wezalife" name="description" />
+    <meta content="Ian Macharia" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.svg">
+    <!-- droping file -->
+    <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- DataTables -->
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap select styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+
+     <!-- owl.carousel css -->
+     <link rel="stylesheet" href="assets/libs/owl.carousel/assets/owl.carousel.min.css">
+
+     <link rel="stylesheet" href="assets/libs/owl.carousel/assets/owl.theme.default.min.css">
+
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="assets/css/custom.css" id="app-style" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body data-sidebar="dark">
+
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-chase">
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+                <div class="chase-dot"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Begin page -->
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="index.html" class="logo logo-dark">
+                            <span class="logo-sm">
+                                    <img src="assets/images/logo.svg" alt="" height="22">
+                                </span>
+                            <span class="logo-lg">
+                                    <img src="assets/images/logo-dark.png" alt="" height="17">
+                                </span>
+                        </a>
+
+                        <a href="index.html" class="logo logo-light">
+                            <span class="logo-sm">
+                                    <img src="assets/images/the-logo.png" alt="" height="50">
+                                </span>
+                            <span class="logo-lg">
+                                    <img src="assets/images/logo-text-white.png" alt="" height="45">
+                                </span>
+                        </a>
+                    </div>
+
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    <!-- logo small -->
+                    <div class="phone-logo d-md-none d-sm-flex"> <img src="assets/images/color-log0.svg" alt="" class="img"></div>
+
+
+
+                    <!-- App Search-->
+                    <form class="app-search d-none d-lg-block">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="bx bx-search-alt"></span>
+                        </div>
+                    </form>
+
+
+                </div>
+
+                <div class="d-flex">
+                    <!-- small search -->
+                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
+
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                                <i class="bx bx-fullscreen"></i>
+                            </button>
+                    </div>
+
+                    <div class="dropdown d-inline-block d-none">
+
+                        <!-- notifications, i will come to this later -->
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bx bx-bell bx-tada"></i>
+                                <span class="badge bg-danger rounded-pill">3</span>
+                            </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h6 class="m-0" key="t-notifications"> Notifications </h6>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="#!" class="small" key="t-view-all"> View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-simplebar style="max-height: 230px;">
+                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <div class="avatar-xs me-3">
+                                            <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="bx bx-cart"></i>
+                                                </span>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1" key="t-your-order">Your order is placed</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <img src="assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">James Lemire</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1" key="t-simplified">It will seem like simplified English.</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <div class="avatar-xs me-3">
+                                            <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                    <i class="bx bx-badge-check"></i>
+                                                </span>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1" key="t-shipped">Your item is shipped</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                    <div class="d-flex">
+                                        <img src="assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Salena Layfield</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1" key="t-occidental">As a skeptical Cambridge friend of mine occidental.</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="p-2 border-top d-grid">
+                                <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                    <i class="mdi mdi-arrow-right-circle me-1"></i> <span key="t-view-more">View More..</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">Adroa Balinda</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a class="dropdown-item" href="myprofile.html"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">My Profile</span></a>
+                            <a class="dropdown-item" href="my-logs.html"><i class="bx bx-time font-size-16 align-middle me-1"></i> <span key="t-profile">My Logs</span></a>
+                            <a class="dropdown-item" href="auth-lock-screen.html"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="auth-login.html"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== Left Sidebar Start ========== -->
+       <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled text-capitalize" id="side-menu">
+                        <li class="menu-title" key="t-pages">Hospital Management Information system </li>
+
+                        <li class="side-bar-button" >
+                            <a href="bill-new.html" class="waves-effect btn btn-light btn-rounded text-left write-msg-btn">
+                                <i class=""><img src="assets/images/plus-icon.svg" alt=""></i>
+                                <span class="text-capitalize">Patient Chekin</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html" class="waves-effect">
+                                <i class="bx bx-home-circle"></i><span>Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="patient-new.html" class="waves-effect">
+                                <i class="mdi mdi-text-box-plus-outline"></i><span>Add Patient</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="patients.html" class="waves-effect">
+                                <i class="mdi mdi-card-account-details-outline"></i><span>Master Patient Index</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi-human-queue mdi"></i>
+                                <span>Patient's Queue</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="queue-triage.html">Triage</a></li>
+                                <li><a href="queue-OPD.html">Consaltation </a></li>
+                                <li><a href="queue-cashier.html">Cashier </a></li>
+                                <li><a href="queue-lab-schedule.html">Scheduled lab Tests</a></li>
+                                <li><a href="queue-ongoing-schedule.html">Ongoing lab Tests</a></li>
+                                <li><a href="queue-test-interpratation-schedule.html">Lab Test Interpratation</a></li>
+                                <li><a href="queue-scan-exam-schedule.html">Scheduled Scan Exams</a></li>
+                                <li><a href="queue-scan-exam-ongoing.html">Ongoing Scan Exams</a></li>
+                                <li><a href="queue-scan-exam-interpratation.html">Scan exam Interpratation</a></li>
+                                <li><a href="queue-pharmacey.html">Pharmacy</a></li>
+
+                            </ul>
+                        </li>
+
+                         <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi-calendar-month mdi"></i>
+                                <span>Appointments</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="appointments-pending.html">Pending Appointments</a></li>
+                                <li><a href="appointments-fullfiled.html">Fullfiled AAppointments</a></li>
+                                <li><a href="appointments-due.html">Due Appointments</a></li>
+                            </ul>
+                        </li>
+                         <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi-clipboard-edit mdi"></i>
+                                <span>Stock Management</span>
+                            </a>
+                            <ul class="sub-menu text-capitalize" aria-expanded="false">
+                                <li><a href="stock-ordering.html">Stock Enquiry</a></li>
+                                <li><a href="stock-taking.html">Stock Taking</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi-cog-outline mdi"></i>
+                                <span>Setups</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="set-up-departments.html">Departments</a></li>
+                                <li><a href="set-up-pricing.html">Pricing & Charges</a></li>
+                                <li><a href="set-up-equipments.html">Equipments</a></li>
+                                <li><a href="set-up-wards.html">Ward Set Up</a></li>
+                                <li><a href="set-up-bed.html">Beds Setup</a></li>
+                                <li><a href="set-Pharmacy.html">Pharmacy inventory</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-title" key="t-pages">Reports</li>
+
+                        <li>
+                            <a href="reports-outpatient.html" class="waves-effect">
+                                <i class="bx bx-clinic"></i><span>Outpatient Reports</span>
+                            </a>
+                        </li>
+
+                         <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi mdi-clipboard-text-outline"></i>
+                                <span>Stock Reports</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="stock-daily-rep.html">Daily Reports</a></li>
+                                <li><a href="stock-manual-exits.html">Manual Exits</a></li>
+                                <li><a href="stock-order-enquarry.html">Order Enquarries</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="reports-inpatient.html" class="waves-effect">
+                                <i class="mdi mdi-bed-outline"></i><span>Inpatient Reports</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports-revenue-streams.html" class="waves-effect">
+                                <i class="mdi mdi-bank-transfer"></i><span>Revenue Perfomance</span>
+                            </a>
+                        </li>
+
+                      <li>
+                            <a href="reports-physician.html" class="waves-effect">
+                                <i class="mdi mdi-doctor"></i><span>Physician Reports</span>
+                            </a>
+                        </li>
+
+                        <li class="d-none">
+                            <a href="reports-physician.html" class="waves-effect">
+                                <i class="mdi mdi-office-building"></i><span>Departmental Reports</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="bx bx-receipt"></i>
+                                <span>Bills</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+
+                                <li><a href="bills-receipted.html">Receipted Bills</a></li>
+                                <li><a href="bills-unpaid.html">Unpaid Bills</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="menu-title" key="t-pages"></li>
+
+                        <li class="d-none">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="bx bx-file"></i>
+                                <span>Reports</span>
+                            </a>
+                            <ul class="sub-menu text-capitalize" aria-expanded="false">
+                                <li><a href="reports-conty.html">Revenus By County</a></li>
+                                <li class=""><a href="reports-debtors.html">Debtors</a></li>
+                                <li class=""><a href="reports-sources.html">Revenue sources</a></li>
+                                <li class="text-capitalize"><a href="reports-transactions.html">Transactions</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="d-none">
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="bx bx-slider"></i>
+                                <span>Settings & Setups</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="finance-act.html">Finance atc</a></li>
+                                <li><a href="set-roads.html">Roads</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a href="javascript: void(0);" class="waves-effect has-arrow">
+                                <i class="mdi mdi-monitor-multiple"></i>
+                                <span>System Users</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="user-userlist.html">System Users</a></li>
+                                <li><a href="user-registration.html">Add a system user</a></li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+
+
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0 font-size-18">Inpatient Reports</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="index.html">Dashboards</a></li>
+                                        <li class="breadcrumb-item active">Inpatient Reports</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header bg-white pt-0 pr-0 p-0 d-flex justify-content-between align-items-center w-100 border-bottom">
+
+                                    <div class="btn-toolbar p-3 d-flex justify-content-between align-items-center w-100" role="toolbar">
+                                        <div>
+
+                                            <div class="row m-0 p-0">
+                                                <small class="mb-3 fw-semibold">Filter By</small>
+                                                <div class="d-flex">
+                                                    <select class="form-control selectpicker bg-white select-revenue" title="Filter By Ward" data-live-search="true">
+                                                        <option value="All Wards">All wards</option>
+                                                        <option value="acacia">Acacia Ward</option>
+                                                        <option value="bluebell">Bluebell Ward</option>
+                                                        <option value="cedar">Cedar Ward</option>
+                                                        <option value="daisy">Daisy Ward</option>
+                                                        <option value="elm">Elm Ward</option>
+                                                    </select>
+
+                                                    <select class="form-control selectpicker bg-white select-revenue mx-3" title="Filter By Gender" data-live-search="true">
+                                                       <option value="All">All</option>
+                                                       <option value="Male">Male</option>
+                                                       <option value="Female">Female</option>
+                                                    </select>
+
+                                                    <select class="form-control selectpicker bg-white select-revenue" title="Filter By Religion" data-live-search="true">
+                                                        <option value="African Traditional & Diasporic">African Traditional & Diasporic</option>
+                                                        <option value="Agnostic">Agnostic</option>
+                                                        <option value="Atheist">Atheist</option>
+                                                        <option value="Baha'i">Baha'i</option>
+                                                        <option value="Buddhism">Buddhism</option>
+                                                        <option value="Cao Dai">Cao Dai</option>
+                                                        <option value="Chinese traditional religion">Chinese traditional religion</option>
+                                                        <option value="Christianity">Christianity</option>
+                                                        <option value="Hinduism">Hinduism</option>
+                                                        <option value="Islam">Islam</option>
+                                                        <option value="Jainism">Jainism</option>
+                                                        <option value="Juche">Juche</option>
+                                                        <option value="Judaism">Judaism</option>
+                                                        <option value="Neo-Paganism">Neo-Paganism</option>
+                                                        <option value="Nonreligious">Nonreligious</option>
+                                                        <option value="Rastafarianism">Rastafarianism</option>
+                                                        <option value="Secular">Secular</option>
+                                                        <option value="Shinto">Shinto</option>
+                                                        <option value="Sikhism">Sikhism</option>
+                                                        <option value="Spiritism">Spiritism</option>
+                                                        <option value="Tenrikyo">Tenrikyo</option>
+                                                        <option value="Unitarian-Universalism">Unitarian-Universalism</option>
+                                                        <option value="Zoroastrianism">Zoroastrianism</option>
+                                                        <option value="primal-indigenous">primal-indigenous</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+
+                                                     <select class="form-control selectpicker bg-white select-revenue mx-3" title="Filter By Age Group" data-live-search="true">
+                                                        <option value="neonatal-infant">Neonatal and infant (0-12)</option>
+                                                        <option value="child-adolescent">Child and adolescent (1-18)</option>
+                                                        <option value="adult">Adult (19-64)</option>
+                                                        <option value="geriatric">Geriatric (65+)</option>
+                                                     </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-auto col-auto d-flex">
+                                            <div class="mx-3">
+                                                <input class="form-control" type="datetime-local" placeholder="Select A date" id="example-datetime-local-input">
+                                            </div>
+                                            <div class="text-sm-end">
+                                                <select name='length_change' class="form-control selectpicker table-rows-selector show-tick btn btn-auto calendar-selecor" data-style="btn-success" data-live-search="true" title="Select a month">
+                                                    <option value='5'>Jan 2021</option>
+                                                    <option value='50' selected="true">Feb 2021</option>
+                                                    <option value='100'>Mar 2021</option>
+                                                    <option value='150'>Apr 2021</option>
+                                                    <option value='200'>May 2021</option>
+                                                    <option value='0'>Jun 2021</option>
+                                                    <option value='0'>Jul 2021</option>
+                                                    <option value='0'>Aug 2021</option>
+                                                    <option value='0'>Sep 2021</option>
+                                                    <option value='0'>Oct 2021</option>
+                                                    <option value='0'>Nov 2021</option>
+                                                    <option value='0'>Dec 2021</option>
+                                                    <option value='0'>Jan 2022</option>
+                                                    <option value='0'>Feb 2022</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="btn-toolbar p-3 align-items-center d-none animated delete-tool-bar" role="toolbar">
+                                        <button type="button" class="btn btn-primary waves-effect btn-label waves-light me-3"><i class="mdi mdi-printer label-icon"></i> Print Selected Invoices</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive ">
+
+                                        <table class="table align-middle table-hover  contacts-table table-striped " id="datatable-buttons">
+                                            <thead class="table-light">
+                                                <tr class="table-dark text-capitalize">
+                                                    <th>MPI</th>
+                                                    <th scope="col" class="">Name</th>
+                                                    <th scope="col">Admission date</th>
+                                                    <th scope="col">Ward</th>
+                                                    <th class="text-nowrap">Bed No.</th>
+                                                    <th>Admitted For</th>
+                                                    <th class="text-nowrap">Discharge Date</th>
+                                                    <th scope="col" class="text-right text-nowrap">Bill Total</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-nowrap">MPI-1234</td>
+                                                    <td class="text-capitalize text-nowrap fw-semibold text-black">Ian Macharia</td>
+                                                    <td class="text-capitalize text-nowrap"> 12 Jul 2023 10:12 AM</td>
+                                                    <td class="text-capitalize">Acacia Ward</td>
+                                                    <td>005</td>
+                                                    <td>Surgical Service</td>
+                                                    <td>12 Jul 2023 11:56 AM</td>
+                                                   <td class="text-right">
+                                                        KES 2,000
+                                                   </td>
+                                                   <td>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="button" class="d-none btn btn-primary btn-sm waves-effect waves-light text-nowrap me-3" data-bs-toggle="modal" data-bs-target=".patient-modal"><i class="bx bx-show font-size-16 align-middle me-2"></i> Details</button>
+                                                        <a href="PrintDocs/Food-handler/health-permit.html" target="_blank" class="d-none btn btn-success btn-sm waves-effect waves-light">
+                                                            <i class="bx bx-printer font-size-16 align-middle me-2"></i> Print
+                                                        </a>
+                                                        <div class="dropdown">
+                                                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-end ">
+                                                                <a class="dropdown-item "  href="# "><i class="font-size-15 mdi mdi-account me-3 "></i>Patient Details</a>
+                                                                <a class="dropdown-item " data-bs-toggle="modal" data-bs-target=".receipting-modal" href="reports-inpatient-report.html"><i class="font-size-15 mdi mdi-eye me-3 "></i>Full Medical Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".billing-modal"><i class="font-size-15 mdi mdi-receipt me-3 "></i>Patient Billing & Update</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".billing-modal"><i class="font-size-15 mdi mdi-subdirectory-arrow-right me-3 "></i>Discharge Patient</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-account-convert me-3 "></i>Move Patient</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-printer me-3 "></i>Print Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".deactivate-modal"><i class="font-size-15 mdi mdi-download me-3 "></i>Download Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".maintanace-modal"><i class="font-size-15 bx bx-receipt me-3 "></i>View Bill</a>
+                                                                <a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target=".maintanace-modal"><i class="font-size-15 bx bx-receipt me-3 "></i>Pronounce dead</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-nowrap">MPI-1234</td>
+                                                    <td class="text-capitalize text-nowrap fw-semibold text-black">Ian Macharia</td>
+                                                    <td class="text-capitalize text-nowrap"> 12 Jul 2023 10:12 AM</td>
+                                                    <td class="text-capitalize">Acacia Ward</td>
+                                                    <td>005</td>
+                                                    <td>Surgical Service</td>
+                                                    <td>12 Jul 2023 11:56 AM</td>
+                                                   <td class="text-right">
+                                                        KES 2,000
+                                                   </td>
+                                                   <td>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="button" class="d-none btn btn-primary btn-sm waves-effect waves-light text-nowrap me-3" data-bs-toggle="modal" data-bs-target=".patient-modal"><i class="bx bx-show font-size-16 align-middle me-2"></i> Details</button>
+                                                        <a href="PrintDocs/Food-handler/health-permit.html" target="_blank" class="d-none btn btn-success btn-sm waves-effect waves-light">
+                                                            <i class="bx bx-printer font-size-16 align-middle me-2"></i> Print
+                                                        </a>
+                                                        <div class="dropdown">
+                                                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-end ">
+                                                                <a class="dropdown-item "  href="# "><i class="font-size-15 mdi mdi-account me-3 "></i>Patient Details</a>
+                                                                <a class="dropdown-item " data-bs-toggle="modal" data-bs-target=".receipting-modal" href="# "><i class="font-size-15 mdi mdi-eye me-3 "></i>Full Medical Report</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-pill me-3 "></i>View Prescriptions</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-printer me-3 "></i>Print Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".deactivate-modal"><i class="font-size-15 mdi mdi-download me-3 "></i>Download Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".maintanace-modal"><i class="font-size-15 bx bx-receipt me-3 "></i>View Bill</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-nowrap">MPI-1234</td>
+                                                    <td class="text-capitalize text-nowrap fw-semibold text-black">Ian Macharia</td>
+                                                    <td class="text-capitalize text-nowrap"> 12 Jul 2023 10:12 AM</td>
+                                                    <td class="text-capitalize">Acacia Ward</td>
+                                                    <td>005</td>
+                                                    <td>Surgical Service</td>
+                                                    <td>12 Jul 2023 11:56 AM</td>
+                                                   <td class="text-right">
+                                                        KES 2,000
+                                                   </td>
+                                                   <td>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="button" class="d-none btn btn-primary btn-sm waves-effect waves-light text-nowrap me-3" data-bs-toggle="modal" data-bs-target=".patient-modal"><i class="bx bx-show font-size-16 align-middle me-2"></i> Details</button>
+                                                        <a href="PrintDocs/Food-handler/health-permit.html" target="_blank" class="d-none btn btn-success btn-sm waves-effect waves-light">
+                                                            <i class="bx bx-printer font-size-16 align-middle me-2"></i> Print
+                                                        </a>
+                                                        <div class="dropdown">
+                                                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-end ">
+                                                                <a class="dropdown-item "  href="# "><i class="font-size-15 mdi mdi-account me-3 "></i>Patient Details</a>
+                                                                <a class="dropdown-item " data-bs-toggle="modal" data-bs-target=".receipting-modal" href="# "><i class="font-size-15 mdi mdi-eye me-3 "></i>Full Medical Report</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-pill me-3 "></i>View Prescriptions</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-printer me-3 "></i>Print Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".deactivate-modal"><i class="font-size-15 mdi mdi-download me-3 "></i>Download Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".maintanace-modal"><i class="font-size-15 bx bx-receipt me-3 "></i>View Bill</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-nowrap">MPI-1234</td>
+                                                    <td class="text-capitalize text-nowrap fw-semibold text-black">Ian Macharia</td>
+                                                    <td class="text-capitalize text-nowrap"> 12 Jul 2023 10:12 AM</td>
+                                                    <td class="text-capitalize">Acacia Ward</td>
+                                                    <td>005</td>
+                                                    <td>Surgical Service</td>
+                                                    <td>12 Jul 2023 11:56 AM</td>
+                                                   <td class="text-right">
+                                                        KES 2,000
+                                                   </td>
+                                                   <td>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="button" class="d-none btn btn-primary btn-sm waves-effect waves-light text-nowrap me-3" data-bs-toggle="modal" data-bs-target=".patient-modal"><i class="bx bx-show font-size-16 align-middle me-2"></i> Details</button>
+                                                        <a href="PrintDocs/Food-handler/health-permit.html" target="_blank" class="d-none btn btn-success btn-sm waves-effect waves-light">
+                                                            <i class="bx bx-printer font-size-16 align-middle me-2"></i> Print
+                                                        </a>
+                                                        <div class="dropdown">
+                                                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-end ">
+                                                                <a class="dropdown-item "  href="# "><i class="font-size-15 mdi mdi-account me-3 "></i>Patient Details</a>
+                                                                <a class="dropdown-item " data-bs-toggle="modal" data-bs-target=".receipting-modal" href="# "><i class="font-size-15 mdi mdi-eye me-3 "></i>Full Medical Report</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-pill me-3 "></i>View Prescriptions</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-printer me-3 "></i>Print Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".deactivate-modal"><i class="font-size-15 mdi mdi-download me-3 "></i>Download Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".maintanace-modal"><i class="font-size-15 bx bx-receipt me-3 "></i>View Bill</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-nowrap">MPI-1234</td>
+                                                    <td class="text-capitalize text-nowrap fw-semibold text-black">Ian Macharia</td>
+                                                    <td class="text-capitalize text-nowrap"> 12 Jul 2023 10:12 AM</td>
+                                                    <td class="text-capitalize">Acacia Ward</td>
+                                                    <td>005</td>
+                                                    <td>Surgical Service</td>
+                                                    <td>12 Jul 2023 11:56 AM</td>
+                                                   <td class="text-right">
+                                                        KES 2,000
+                                                   </td>
+                                                   <td>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="button" class="d-none btn btn-primary btn-sm waves-effect waves-light text-nowrap me-3" data-bs-toggle="modal" data-bs-target=".patient-modal"><i class="bx bx-show font-size-16 align-middle me-2"></i> Details</button>
+                                                        <a href="PrintDocs/Food-handler/health-permit.html" target="_blank" class="d-none btn btn-success btn-sm waves-effect waves-light">
+                                                            <i class="bx bx-printer font-size-16 align-middle me-2"></i> Print
+                                                        </a>
+                                                        <div class="dropdown">
+                                                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-end ">
+                                                                <a class="dropdown-item "  href="# "><i class="font-size-15 mdi mdi-account me-3 "></i>Patient Details</a>
+                                                                <a class="dropdown-item " data-bs-toggle="modal" data-bs-target=".receipting-modal" href="# "><i class="font-size-15 mdi mdi-eye me-3 "></i>Full Medical Report</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-pill me-3 "></i>View Prescriptions</a>
+                                                                <a class="dropdown-item " href="#"><i class="font-size-15 mdi mdi-printer me-3 "></i>Print Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".deactivate-modal"><i class="font-size-15 mdi mdi-download me-3 "></i>Download Report</a>
+                                                                <a class="dropdown-item " href="#" data-bs-toggle="modal" data-bs-target=".maintanace-modal"><i class="font-size-15 bx bx-receipt me-3 "></i>View Bill</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                </tr>
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="table-dark">
+                                                    <th colspan="3">22 Patients</th>
+                                                    <th>12 Wards</th>
+                                                    <th colspan="2">45 Beds</th>
+
+                                                    <th colspan="2" class="text-right">KES 45,789</th>
+                                                    <th></th>
+                                                </tr>
+                                            </tfoot>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+
+                    <!-- end row -->
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <!-- receipting modal -->
+            <div class="modal fade receipting-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myLargeModalLabel">Food Handler Certificate Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <address>
+                                        <strong class="text-capitalize">Patient Details</strong><br>
+                                        Mrs Jane Doe<br>
+                                        <a href="mailto:email@mail.com">email@mail.com</a>, <a href="tel:+254704549859">0704 549 859</a><br>
+
+                                        <br>
+                                        Valid From 1 Mar 2022, 10:20 AM
+                                        <br>
+                                        <span class="pr-2">Valid Till 2 Mar 2023, 10:20 AM </span>
+                                        <span class="badge rounded-pill bg-success text-uppercase me-3">Active</span>
+
+                                    </address>
+                                </div>
+
+                                <div class="col-6 text-right">
+                                    <address>
+                                        <strong class="text-capitalize">Location Details</strong><br>
+                                        Street/Road: Mombasa Road<br>
+                                        Plot No.: 122202/1250<br>
+                                        Building: The Tower. Floor: 12. Door/Stall No.: 123<br/>
+                                        Subcounty: CBD. Ward: Mututu
+
+
+                                    </address>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="hori-timeline mt-4">
+                                        <div class="owl-carousel owl-theme  navs-carousel events timeline-carousel" id="timeline-carousel">
+                                            <div class="item event-list">
+                                                <div>
+                                                    <div class="event-date">
+                                                        <div class="text-primary mb-1">12 Sep 2023 10:09 AM</div>
+                                                        <h5 class="mb-4">Application</h5>
+                                                    </div>
+                                                    <div class="event-down-icon">
+                                                        <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                                                    </div>
+
+                                                    <div class="mt-3 px-3">
+                                                        <p class="text-muted text-capitalize">Self Service Portal</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item event-list">
+                                                <div>
+                                                    <div class="event-date">
+                                                        <div class="text-primary mb-1">13 Sep 2023 10:09 AM</div>
+                                                        <h5 class="mb-4">Lab Test</h5>
+                                                    </div>
+                                                    <div class="event-down-icon">
+                                                        <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                                                    </div>
+
+                                                    <div class="mt-3 px-3 text-capitalize">
+                                                        <p class="text-muted">Dr Mary Jane at Taifa Clinic</p>
+                                                        <a href="PrintDocs/health-result-slip-master/health-result-slip-master/slip33.html" target="_blank" type="button" class="btn btn-link waves-effect"><i class="mdi mdi-eye-outline"></i> View Result Slip</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item event-list">
+                                                <div>
+                                                    <div class="event-date">
+                                                        <div class="text-primary mb-1">14 Sep 2023 12:57 PM</div>
+                                                        <h5 class="mb-4">Approved</h5>
+                                                    </div>
+                                                    <div class="event-down-icon">
+                                                        <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                                                    </div>
+
+                                                    <div class="mt-3 px-3">
+                                                        <p class="text-muted">Mary Max</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item event-list">
+                                                <div>
+                                                    <div class="event-date">
+                                                        <div class="text-primary mb-1">15 Sep 2023 12:54 PM</div>
+                                                        <h5 class="mb-4">Certification</h5>
+                                                    </div>
+                                                    <div class="event-down-icon">
+                                                        <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                                                    </div>
+
+                                                    <div class="mt-3 px-3">
+                                                        <p class="text-muted">Certifcate Issued By Kiprop Tanui</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 text-sm-end d-none">
+                                    <address class="mt-2 mt-sm-0">
+                                        <strong>Payment Method</strong><br>
+                                        <span class="fw-medium">MPESA</span><br>
+                                        Phone No. 0704 549 859<br> <br>
+                                        On 1 Mar 2022, 10:20 AM
+                                    </address>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="py-2 mt-3">
+                                    <h3 class="font-size-15 fw-bold">ND12368</h3>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-nowrap vertical-align-middle">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>More Details</th>
+                                                <th class="text-end"></th>
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr title="Driving Without identification plates affixed or plates not fixed in the prescribed manner">
+                                                <td>
+                                                    <p class="the-bill-item mb-0 p-0 m-0 fw-semibold">Serial Number</p>
+                                                </td>
+                                                <td class="">12WER345</td>
+
+                                            </tr>
+
+                                            <tr title="Driving Without identification plates affixed or plates not fixed in the prescribed manner">
+                                                <td>
+                                                    <p class="the-bill-item mb-0 p-0 m-0 fw-semibold">Business Owner(s)</p>
+                                                </td>
+                                                <td class="">John Doe Kamau, James Kuria Kimotho</td>
+
+                                            </tr>
+
+                                            <tr >
+                                                <td>
+                                                    <p class="the-bill-item mb-0 p-0 m-0 fw-semibold">Profession/Occupation</p>
+
+                                                </td>
+                                                <td class="">Food Processing</td>
+
+                                            </tr>
+                                            <tr >
+                                                <td>
+                                                    <p class="the-bill-item mb-0 p-0 m-0 fw-semibold">Application Date</p>
+
+                                                </td>
+                                                <td class="">5 Jan 2022 10:09 AM</td>
+
+                                            </tr>
+
+                                            <tr >
+                                                <td>
+                                                    <p class="the-bill-item mb-0 p-0 m-0 fw-semibold">Date Approved</p>
+
+                                                </td>
+                                                <td class="">11 Jan 2022 09:54 AM</td>
+
+                                            </tr>
+
+                                            <tr >
+                                                <td>
+                                                    <p class="the-bill-item mb-0 p-0 m-0 fw-semibold">Days To Expiry</p>
+
+                                                </td>
+                                                <td class="">134 Days</td>
+
+                                            </tr>
+
+                                            <tr >
+                                                <td>
+                                                    <p class="the-bill-item mb-0 p-0 m-0 fw-semibold">Amount Paid</p>
+
+                                                </td>
+                                                <td class="text-uppercase">KES 1,000</td>
+
+                                            </tr>
+
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <a href="PrintDocs/Food-handler/health-permit.html" target="_blank" type="button" class="btn btn-primary waves-effect waves-light">
+                                <i class="mdi mdi-printer font-size-16 align-middle me-2"></i> Print Certificate
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- end of receipting modal -->
+
+            <!-- invoice details -->
+            <div class="modal fade invoice-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myLargeModalLabel">Invoice Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-12">
+                                <address>
+                                    <strong>Billed To:</strong><br>
+                                    Ian Macharia<br>
+                                    email@mail.com, 0704 549 859<br>
+                                    Hse No. 410, 90 Degrees By Tsavo
+                                    <br><br>
+                                    1 Mar 2022, 10:20 AM
+                                </address>
+                            </div>
+                            <div class="col-12">
+                                <div class="py-2 mt-3">
+                                    <h3 class="font-size-15 fw-bold">Invoice Details ( <span class="text-primary fw-medium">No. 1237</span> )</h3>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 70px;">No.</th>
+                                                <th>Item</th>
+                                                <th class="text-end">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>01</td>
+                                                <td>Rent Deposit</td>
+                                                <td class="text-end">KES 24,500</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>02</td>
+                                                <td>Monthly Rent</td>
+                                                <td class="text-end">KES 12,000</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>03</td>
+                                                <td>TAX (18%)</td>
+                                                <td class="text-end">KES 250</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="text-end">Total</td>
+                                                <td class="text-end fw-bold">KES 36,750</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="text-end">Paid</td>
+                                                <td class="text-end  fw-bold">KES 0.00</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="2" class="border-0 text-end">
+                                                    <strong>Balance</strong></td>
+                                                <td class="border-0 text-end">
+                                                    <h5 class="m-0 text-uppercase fw-bold">KES 36,750</h5>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-12 d-none">
+                                <div class="table-resposive p-4 px-2 pt-2 overflow-visible">
+                                    <table class="w-100">
+                                        <tbody>
+                                            <tr data-id="1">
+                                                <td>
+                                                    <label for="" class="">Payment Method</label>
+                                                    <select class="form-control selectpicker w-100 payment-method" data-style="btn-secondary w-100" data-live-search="true" title="Select payment Method">
+                                                        <option value="Mpesa">MPESA</option>
+                                                        <option value="Cash">CASH</option>
+                                                     </select>
+                                                </td>
+                                                <td class="px-3 ">
+                                                    <div class="phone-num d-none">
+                                                        <label for="">Phone No.</label>
+                                                        <input type="text " class="form-control w-100 d-flex " placeholder="Phone No." spellcheck="false" data-ms-editor="true">
+                                                    </div>
+
+                                                </td>
+                                                <td class="px-3">
+                                                    <label for="">Amount To Be Paid</label>
+                                                    <input type="text " class="form-control w-100 d-flex" placeholder="KES" spellcheck="false" data-ms-editor="true">
+
+                                                </td>
+                                                <td class="text-right float-right">
+                                                    <div class="d-flex flex-column">
+                                                        <label class="opacity-0">Something</label>
+                                                        <a href="#" class="btn btn-primary w-md waves-effect waves-light">Submit</a>
+                                                    </div>
+                                                </td>
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="float-end">
+                                <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1"><i class="mdi mdi-printer font-16px"></i></a>
+                                <a href="javascript: void(0);" class="btn btn-primary w-md waves-effect waves-light">Receive Payment</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- invoice details -->
+
+            <!-- patients details modal -->
+            <div class="modal fade patient-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myLargeModalLabel">Add A bed to the ward</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="Bed Number">Bed Number</label>
+                                        <input type="text" class="form-control mb-3" placeholder="Enter Bed Number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button class="btn btn-primary w-100">Save Changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- end of patieonts details modal -->
+
+            <!-- patient billing modal -->
+            <div class="modal fade billing-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog  w-100 modal-lg modal-dialog-centered modal-full">
+                    <div class="modal-content w-100">
+                        <div class="modal-header">
+                            <h5 class="modal-title ml-3 me-3" id="myLargeModalLabel">Update Patient Report</h5>
+                            <span class="badge rounded-pill bg-success text-uppercase font-12px">Critical Level: Expectant</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body consoltation-modal">
+                            <div class="row">
+                                <div class="col-6">
+                                    <address>
+                                        <strong class="text-capitalize">Patient Details:</strong><br>
+                                        Alex Wanjala, 23 Year Old Male,<br>
+                                        email@mail.com, 0704 549 859<br>
+                                        Patient ID. MPI/23455<br/>
+                                        <br>
+
+
+                                    </address>
+                                </div>
+                                <div class="col-6 text-right d-none">
+                                    <address>
+                                        <strong class="text-capitalize">Location Details</strong><br>
+                                        Street/Road: Mombasa Road<br>
+                                        Plot No.: 122202/1250<br>
+                                        Building: The Tower. Floor: 12. Door/Stall No.: 123<br/>
+                                        Subcounty: CBD. Ward: Mututu
+
+                                    </address>
+                                </div>
+                            </div>
+
+                           <div class="row">
+
+
+                           <!-- consaltation findings and feedback -->
+                           <div class="col-12">
+                                <div class="row consaltation-container">
+                                    <div class="col-12">
+                                        <div class="bg-info border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-account font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0">Patient Details</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-sm-6 col-md-6 mb-3">
+                                                <div>
+                                                    <label class="form-label">Days In Admission</label>
+                                                    <p class="text-black fw-semibold">45 Days</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-sm-6 col-md-6 mb-3">
+                                                <div>
+                                                    <label class="form-label">Age</label>
+                                                    <p class="text-black fw-semibold">3 Years 3 Months</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-sm-6 col-md-6 mb-3">
+                                                <div>
+                                                    <label class="form-label">Height</label>
+                                                   <p class="text-black fw-semibold">Casualty</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-6 col-md-6 mb-3">
+                                                <div>
+                                                    <label class="form-label">Weight</label>
+                                                   <p class="text-black fw-semibold">77 KGs</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-6 col-md-6 mb-3">
+                                                <div>
+                                                    <label class="form-label">Chief Reason for Admission</label>
+                                                   <p class="text-black fw-semibold">Constant Chest Pains</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="bg-info border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-shield-alert font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0">Food And Drugs Allergies</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12">
+
+                                        <div class="row">
+
+                                            <div class="col-12 allergy-table">
+
+                                                <div class="table-responsive">
+                                                    <table class="table table-nowrap table-sm">
+                                                        <thead class="bg-light">
+                                                            <tr>
+                                                                <th style="width: 40px;">#</th>
+                                                                <th>Allergie</th>
+                                                            </tr>
+                                                            <tbody>
+
+
+                                                                <tr>
+                                                                    <td>1.</td>
+                                                                    <th>Cow Milk</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2.</td>
+                                                                    <th>Tree Nuts</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>3.</td>
+                                                                    <th>Peanuts</th>
+                                                                </tr>
+
+                                                            </tbody>
+
+                                                        </thead>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="col-12">
+                                        <div class="bg-info border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-calendar-month font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0">Past Historical Data</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-nowrap table-sm">
+                                                <thead class="bg-light">
+                                                    <tr>
+                                                        <th style="width: 40px;">#</th>
+                                                        <th>Date</th>
+                                                        <th class="" >Visit type</th>
+                                                        <th>Diagnosis</th>
+                                                        <th>Hospital</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>22 Feb 2023 10:05 AM</td>
+                                                        <td>Outpatient</td>
+                                                        <td>Flu (Influenza)</td>
+                                                        <td>Hosipitali Kuu</td>
+                                                        <td>
+                                                            <a title="Click to View More Information" href="#">View</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>07 Jan 2023 08:09 AM</td>
+                                                        <td>Outpatient</td>
+                                                        <td>Common Cold</td>
+                                                        <td>Hosipitali Kuu</td>
+                                                        <td>
+                                                            <a title="Click to View More Information" href="#">View</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>11 Sep 2022 09:34 AM</td>
+                                                        <td>Outpatient</td>
+                                                        <td>Sore Throat, Flu (Influenza)</td>
+                                                        <td>Hosipitali Kuu</td>
+                                                        <td>
+                                                            <a title="Click to View More Information" href="#">View</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 text-capitalize">
+                                        <div>
+                                            <a href="">... Plus 3 More other past records, click here to view all the past records</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <div class="bg-success border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-emoticon-sick-outline font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0">Patient's Symptoms</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 allergy-table">
+                                        <h3 class="font-size-15 fw-bold text-capitalize mb-3 mt-1 d-none">Patient's Symptoms</h3>
+                                        <p>Enter Below any additional symptoms beign exhibited by the patient</p>
+                                        <div class="">
+                                            <table class="table table-nowrap table-sm table-editable-1">
+                                                <thead class="bg-light">
+                                                    <tr>
+                                                        <th style="width: 40px;">#</th>
+                                                        <th>Symptom</th>
+                                                    </tr>
+                                                    <tbody>
+
+
+                                                        <tr>
+                                                            <td>1.</td>
+                                                            <td>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="Enter Symptom"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="cloneCharges d-none">
+                                                            <td style="width: 80px " class="categoryIndex ">#</td>
+
+                                                            <td>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="Enter Symptom"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="7" class="bg-light add-field-1 cursor-pointer text-black fw-bold">
+                                                                <span class="d-flex align-items-center "><i class="dripicons-plus mr-5 d-flex justify-content-center align-items-center font-21 "></i><span class="pl-5 ">Add Sympotom Field</span></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+
+                                                </thead>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 mt-3">
+                                        <div class="bg-success border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-virus-outline font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0">Diagnosis and Findings</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 allergy-table">
+                                        <h3 class="font-size-15 fw-bold text-capitalize mb-3 mt-1 d-none">Patient's Symptoms</h3>
+                                        <p>Enter below the disease/findings as diagnosed from the patient.</p>
+                                        <div class="">
+                                            <table class="table table-nowrap table-sm table-editable-1">
+                                                <thead class="bg-light">
+                                                    <tr>
+                                                        <th style="width: 40px;">#</th>
+                                                        <th class="text-capitalize">Disease or Condition</th>
+                                                    </tr>
+                                                    <tbody>
+
+
+                                                        <tr>
+                                                            <td>1.</td>
+                                                            <td>
+                                                                <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Illness/Condition" data-live-search="true">
+                                                                    <option value="Cardiovascular">Cardiovascular</option>
+                                                                    <option value="Essential Hypertension">Essential Hypertension</option>
+                                                                    <option value="Hyperlipidemia">Hyperlipidemia</option>
+                                                                    <option value="Chest Pain: Chronic Stable Angina / Stable Ischemic Heart Disease">Chest Pain: Chronic Stable Angina / Stable Ischemic Heart Disease</option>
+                                                                    <option value="Chest pain: ACS in the clinic">Chest pain: ACS in the clinic</option>
+                                                                    <option value="Congestive Heart Failure">Congestive Heart Failure</option>
+                                                              </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="cloneCharges d-none">
+                                                            <td style="width: 80px " class="categoryIndex ">#</td>
+
+                                                           <td>
+                                                            <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Illness/Condition" data-live-search="true">
+                                                                <option value="Cardiovascular">Cardiovascular</option>
+                                                                <option value="Essential Hypertension">Essential Hypertension</option>
+                                                                <option value="Hyperlipidemia">Hyperlipidemia</option>
+                                                                <option value="Chest Pain: Chronic Stable Angina / Stable Ischemic Heart Disease">Chest Pain: Chronic Stable Angina / Stable Ischemic Heart Disease</option>
+                                                                <option value="Chest pain: ACS in the clinic">Chest pain: ACS in the clinic</option>
+                                                                <option value="Congestive Heart Failure">Congestive Heart Failure</option>
+                                                            </select>
+                                                           </td>
+                                                        </tr>
+                                                    </tbody>
+
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="7" class="bg-light add-field-1 cursor-pointer text-black fw-bold">
+                                                                <span class="d-flex align-items-center "><i class="dripicons-plus mr-5 d-flex justify-content-center align-items-center font-21 "></i><span class="pl-5 ">Add A Disease or Condition Field</span></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+
+                                                </thead>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <div class="bg-success border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-medical-bag font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0 text-capitalize">Medical Procedures</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 lab-test-parent-container">
+                                        <diiv class="row">
+                                            <div class="col-12">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <h5 class="alert-heading text-capitalize">Are There any further procedures/work needed to be performed to the patient?</h5>
+                                                    <div class="mt-4 d-flex">
+
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" value="Yes" type="radio" name="med-procudure" id="yes-procudure">
+                                                            <label class="form-check-label" for="yes-procudure">
+                                                                Yes,
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check mx-3">
+                                                            <input class="form-check-input" value="No" type="radio" name="med-procudure" id="no-procudure" checked="">
+                                                            <label class="form-check-label" for="no-procudure" >
+                                                                No, Procedures need to be performed                                                    </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 procedure-container d-none">
+                                                <div class="">
+                                                    <table class="table table-nowrap table-sm table-editable-1">
+                                                        <thead class="bg-light">
+                                                            <tr>
+                                                                <th style="width: 40px;">#</th>
+                                                                <th>Procedure To Be Perfomed</th>
+                                                            </tr>
+                                                            <tbody>
+
+
+                                                                <tr>
+                                                                    <td>1.</td>
+                                                                    <td>
+                                                                        <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Procedure" data-live-search="true">
+                                                                            <option value="Cataract">Cataract surgery</option>
+                                                                            <option value="Tendon">Tendon and muscle repair</option>
+                                                                            <option value="Joint">Small joint repairs</option>
+                                                                            <option value="Gallbladder">Gallbladder removal (cholecystectomy)</option>
+                                                                            <option value="Meniscus">Meniscus repair</option>
+                                                                            <option value="Hernia">Abdominal hernia repair</option>
+                                                                            <option value="Skin">Skin therapy</option>
+                                                                            <option value="Lumpectomy">Lumpectomy</option>
+                                                                      </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="cloneCharges d-none">
+                                                                    <td style="width: 80px " class="categoryIndex ">#</td>
+
+                                                                    <td>
+                                                                        <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Procedure" data-live-search="true">
+                                                                            <option value="Cataract">Cataract surgery</option>
+                                                                            <option value="Tendon">Tendon and muscle repair</option>
+                                                                            <option value="Joint">Small joint repairs</option>
+                                                                            <option value="Gallbladder">Gallbladder removal (cholecystectomy)</option>
+                                                                            <option value="Meniscus">Meniscus repair</option>
+                                                                            <option value="Hernia">Abdominal hernia repair</option>
+                                                                            <option value="Skin">Skin therapy</option>
+                                                                            <option value="Lumpectomy">Lumpectomy</option>
+                                                                      </select>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <td colspan="7" class="bg-light add-field-1 cursor-pointer text-black fw-bold">
+                                                                        <span class="d-flex align-items-center "><i class="dripicons-plus mr-5 d-flex justify-content-center align-items-center font-21 "></i><span class="pl-5 ">Add Procedure Field</span></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tfoot>
+
+                                                        </thead>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </diiv>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <div class="bg-success border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-test-tube font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0 text-capitalize">Laboratory test requisition </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 lab-test-parent-container">
+                                        <diiv class="row">
+                                            <div class="col-12">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <h5 class="alert-heading text-capitalize">Are there any further Lab tests needed to be perfomed?</h5>
+                                                    <div class="mt-4 d-flex">
+
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" value="Yes" type="radio" name="lab-test" id="yes-lab">
+                                                            <label class="form-check-label" for="yes-lab">
+                                                                Yes,
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check mx-3">
+                                                            <input class="form-check-input" value="No" type="radio" name="lab-test" id="no-lab" checked="">
+                                                            <label class="form-check-label" for="no-lab" >
+                                                                No, lab tests not necessary
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 lab-tests-container d-none">
+                                                <div class="">
+                                                    <table class="table table-nowrap table-sm table-editable-1">
+                                                        <thead class="bg-light">
+                                                            <tr>
+                                                                <th style="width: 40px;">#</th>
+                                                                <th>Lab Test</th>
+                                                            </tr>
+                                                            <tbody>
+
+
+                                                                <tr>
+                                                                    <td>1.</td>
+                                                                    <td>
+                                                                        <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Lab test to be done" data-live-search="true">
+                                                                            <option value="Fasting Blood Sugar">Fasting Blood Sugar</option>
+                                                                            <option value="Random Blood Sugar">Random Blood Sugar</option>
+                                                                            <option value="Antenatal Profile">Antenatal Profile</option>
+                                                                            <option value="ABO & Rh Blood">ABO & Rh Blood</option>
+                                                                            <option value="ACTH (Adrenocorticotropic Hormone), Blood">ACTH (Adrenocorticotropic Hormone), Blood</option>
+                                                                            <option value="Alanine Transferase">Alanine Transferase</option>
+                                                                      </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="cloneCharges d-none">
+                                                                    <td style="width: 80px " class="categoryIndex ">#</td>
+
+                                                                    <td>
+                                                                        <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Lab test to be done" data-live-search="true">
+                                                                            <option value="Fasting Blood Sugar">Fasting Blood Sugar</option>
+                                                                            <option value="Random Blood Sugar">Random Blood Sugar</option>
+                                                                            <option value="Antenatal Profile">Antenatal Profile</option>
+                                                                            <option value="ABO & Rh Blood">ABO & Rh Blood</option>
+                                                                            <option value="ACTH (Adrenocorticotropic Hormone), Blood">ACTH (Adrenocorticotropic Hormone), Blood</option>
+                                                                            <option value="Alanine Transferase">Alanine Transferase</option>
+                                                                      </select>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <td colspan="7" class="bg-light add-field-1 cursor-pointer text-black fw-bold">
+                                                                        <span class="d-flex align-items-center "><i class="dripicons-plus mr-5 d-flex justify-content-center align-items-center font-21 "></i><span class="pl-5 ">Add A Lab test Field</span></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tfoot>
+
+                                                        </thead>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </diiv>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <div class="bg-success border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-radioactive font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0 text-capitalize">Radiology Scan requisition </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 lab-test-parent-container">
+                                        <diiv class="row">
+                                            <div class="col-12">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <h5 class="alert-heading text-capitalize">Are There any scans that need to be perfomed?</h5>
+                                                    <div class="mt-4 d-flex">
+
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" value="Yes" type="radio" name="scan-test" id="yes-scan">
+                                                            <label class="form-check-label" for="yes-scan">
+                                                                Yes,
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check mx-3">
+                                                            <input class="form-check-input" value="No" type="radio" name="scan-test" id="no-scan" checked="">
+                                                            <label class="form-check-label" for="no-scan" >
+                                                                No, Scanning not necessary
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 scan-tests-container d-none">
+                                                <div class="">
+                                                    <table class="table table-nowrap table-sm table-editable-1">
+                                                        <thead class="bg-light">
+                                                            <tr>
+                                                                <th style="width: 40px;">#</th>
+                                                                <th>Radiology Scan</th>
+                                                                <th>Reason for Exam</th>
+                                                            </tr>
+                                                            <tbody>
+
+
+                                                                <tr>
+                                                                    <td>1.</td>
+                                                                    <td>
+                                                                        <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Scan to be done" data-live-search="true">
+                                                                            <option value="computerized axial tomography (CAT) scan">computerized axial tomography (CAT) scan</option>
+                                                                            <option value="Fluoroscopy">Fluoroscopy</option>
+                                                                            <option value="Magnetic resonance imaging (MRI) scan">Magnetic resonance imaging (MRI) scan</option>
+                                                                            <option value="Ultrasound">Ultrasound</option>
+                                                                            <option value="X-rays (radiographs)">X-rays (radiographs)</option>
+                                                                      </select>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" class="form-control form-control-sm" placeholder="Enter Reason"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="cloneCharges d-none">
+                                                                    <td style="width: 80px " class="categoryIndex ">#</td>
+
+                                                                    <td>
+                                                                        <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Scan to be done" data-live-search="true">
+                                                                            <option value="computerized axial tomography (CAT) scan">computerized axial tomography (CAT) scan</option>
+                                                                            <option value="Fluoroscopy">Fluoroscopy</option>
+                                                                            <option value="Magnetic resonance imaging (MRI) scan">Magnetic resonance imaging (MRI) scan</option>
+                                                                            <option value="Ultrasound">Ultrasound</option>
+                                                                            <option value="X-rays (radiographs)">X-rays (radiographs)</option>
+                                                                      </select>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" class="form-control form-control-sm" placeholder="Enter Reason"/>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <td colspan="7" class="bg-light add-field-1 cursor-pointer text-black fw-bold">
+                                                                        <span class="d-flex align-items-center "><i class="dripicons-plus mr-5 d-flex justify-content-center align-items-center font-21 "></i><span class="pl-5 ">Add A Scan Field</span></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tfoot>
+
+                                                        </thead>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </diiv>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <div class="bg-success border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-pill font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0">Drugs/Medicine Prescription</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 allergy-table">
+                                        <h3 class="font-size-15 fw-bold text-capitalize mb-3 mt-1 d-none">Patient's Symptoms</h3>
+                                        <p>Select Medication that the patient should pick from the phamarcey</p>
+                                        <div class="">
+                                            <table class="table table-nowrap table-sm table-editable-1">
+                                                <thead class="bg-light">
+                                                    <tr>
+                                                        <th style="width: 40px;">#</th>
+                                                        <th class="text-capitalize">Prescription</th>
+                                                        <th>QTY</th>
+                                                    </tr>
+                                                    <tbody>
+
+
+                                                        <tr>
+                                                            <td>1.</td>
+                                                            <td>
+                                                                <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Prescription" data-live-search="true">
+                                                                    <option value="Diclofenac Tablet 50 mg">Diclofenac Tablet 50 mg</option>
+                                                                    <option value="Levocetirizine 5mg Tablet">Levocetirizine 5mg Tablet</option>
+                                                                    <option value="Asprin">Asprin</option>
+                                                                    <option value="Levocetirizine">Levocetirizine</option>
+                                                                    <option value="Pheniramine Injection 22.75 mg/ml">Pheniramine Injection 22.75 mg/ml</option>
+                                                                    <option value="Paracetamol tablet 250 mg">Paracetamol tablet 250 mg</option>
+                                                              </select>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="Quantity">
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr class="cloneCharges d-none">
+                                                            <td style="width: 80px " class="categoryIndex ">#</td>
+
+                                                           <td>
+                                                                <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Select Prescription" data-live-search="true">
+                                                                    <option value="Diclofenac Tablet 50 mg">Diclofenac Tablet 50 mg</option>
+                                                                    <option value="Levocetirizine 5mg Tablet">Levocetirizine 5mg Tablet</option>
+                                                                    <option value="Asprin">Asprin</option>
+                                                                    <option value="Levocetirizine">Levocetirizine</option>
+                                                                    <option value="Pheniramine Injection 22.75 mg/ml">Pheniramine Injection 22.75 mg/ml</option>
+                                                                    <option value="Paracetamol tablet 250 mg">Paracetamol tablet 250 mg</option>
+                                                                </select>
+                                                           </td>
+                                                           <td>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="Quantity">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="7" class="bg-light add-field-1 cursor-pointer text-black fw-bold">
+                                                                <span class="d-flex align-items-center "><i class="dripicons-plus mr-5 d-flex justify-content-center align-items-center font-21 "></i><span class="pl-5 ">Add A Medication Field</span></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+
+                                                </thead>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="col-12 mt-3">
+                                        <div class="bg-success border-2 bg-soft p-2 mb-4 d-flex align-items-center">
+                                            <i class="mdi mdi-file-document-edit-outline font-28 mr-15px"></i>
+                                            <p class="fw-semibold mb-0 pb-0 text-capitalize">Doctor Notes &  Observations</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="">Write down some notes or Observations fro the patient</label>
+                                        <textarea class="form-control" id="" cols="30" rows="3" placeholder="Start Typing ..." spellcheck="false" data-ms-editor="true"></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="row bill-details d-flex justify-content-center align-items-center py-5 d-none">
+                                    <div class="col-md-12 pb-4">
+                                        <div class="table-responsive">
+                                            <table class="table table-nowrap invoice-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 70px;">#</th>
+                                                        <th>Item</th>
+                                                        <th>Qty</th>
+                                                        <th>Department</th>
+                                                        <th class="text-end">Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>01</td>
+                                                        <td>Asprin</td>
+                                                        <td class="fw-semibold text-black">1</td>
+                                                        <td>Pharmacey</td>
+                                                        <td class="text-end">KES 200</td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>03</td>
+                                                        <td>Diclofenac Tablet 50 mg</td>
+                                                        <td class="fw-semibold text-black">1</td>
+                                                        <td>Pharmacey</td>
+                                                        <td class="text-end">KES 300</td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>04</td>
+                                                        <td>Levothyroxine sodium</td>
+                                                        <td class="fw-semibold text-black">1</td>
+                                                        <td>Pharmacey</td>
+                                                        <td class="text-end">KES 100</td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>05</td>
+                                                        <td>Lisinopril</td>
+                                                        <td class="fw-semibold text-black">1</td>
+                                                        <td>Pharmacey</td>
+                                                        <td class="text-end">KES 400</td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>06</td>
+                                                        <td>Complete blood count (CBC)</td>
+                                                        <td class="fw-semibold text-black">1</td>
+                                                        <td>Laboratory test</td>
+                                                        <td class="text-end">KES 500</td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>07</td>
+                                                        <td>Blood enzyme tests.</td>
+                                                        <td class="fw-semibold text-black">1</td>
+                                                        <td>Laboratory test</td>
+                                                        <td class="text-end">KES 300</td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="3" class="text-end text-uppercase">Totals</td>
+                                                        <td class="fw-bold">Consaltation Fee</td>
+                                                        <td class="text-end fw-bold text-total">KES 1,000 (Paid)</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="3" class="text-end text-uppercase"></td>
+                                                        <td class="fw-bold">Pharmacey</td>
+                                                        <td class="text-end fw-bold text-total">KES 1,000</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="3" class="text-end text-uppercase"></td>
+                                                        <td class="fw-bold">Laboratory tests</td>
+                                                        <td class="text-end fw-bold text-total">KES 800</td>
+                                                    </tr>
+
+                                                    <tr class="text-uppercase">
+                                                        <td colspan="3" class="border-0 text-end">
+                                                            <strong>Sub Total</strong>
+                                                        </td>
+                                                        <td class="border-0 text-end text-right" colspan="2">
+                                                            <h5 class="m-0 text-uppercase fw-bold the-balance text-right">KES 1,800</h5>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                            <button class="btn btn-success w-100 text-center text-uppercase generate-bill"> Generate Bill <i class="mdi mdi-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                           </div>
+                           <!-- end of consaltation -->
+                            <div class="col-12 mt-3">
+                                <button class="btn btn-primary w-100 text-center text-uppercase consolataion-btn"> Next <i class="mdi mdi-arrow-right"></i></button>
+                            </div>
+
+
+
+
+                           </div>
+                        </div>
+
+                        <div class="modal-body d-none admission-modal">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="p-4 bg-light mb-4 h-100">
+                                        <div class="row d-flex justify-content-between align-items-center">
+                                            <div class="col-12 d-flex justify-content-between  align-items-center">
+                                                <div class="d-fle">
+                                                    <p class="mb-0 fw-semibold text-uppercase pb-0"><a href="#">Patient's Registration Details</a></p>
+
+                                                </div>
+                                                <div class="">
+                                                    <div class="mb-0 d-flex justify-content-between align-items-center ">
+                                                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#subscribeModal">Select A different Patient</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <hr>
+                                            </div>
+
+
+                                            <div class="col-12 d-none">
+                                                <div class="row">
+                                                    <div class="col-4 col-sm-12 col-md-4 d-none">
+                                                        <div class="d-flex">
+                                                            <div class="flex-shrink-0 me-3 align-self-center">
+                                                                <i class="mdi mdi-card-account-details-outline  h2 text-dark"></i>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="text-muted mb-0">ID No.</p>
+                                                                <h5 class="mb-0 font-14px">12345678</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 col-sm-12 col-md-4">
+                                                        <div class="d-flex">
+                                                            <div class="flex-shrink-0 me-3 align-self-center">
+                                                                <i class="mdi mdi-account  h2 text-dark"></i>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="text-muted mb-0">Offender's Full Name</p>
+                                                                <h5 class="mb-0 font-14px">Ian Macharia -</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-4 col-sm-12 col-md-4">
+                                                        <div class="d-flex">
+                                                            <div class="flex-shrink-0 me-3 align-self-center">
+                                                                <i class="mdi mdi-phone  h2 text-dark"></i>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="text-muted mb-0">Phone No.</p>
+                                                                <h5 class="mb-0 font-14px text-uppercase">0704549859</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-4 col-sm-12 col-md-4">
+                                                        <div class="d-flex">
+                                                            <div class="flex-shrink-0 me-3 align-self-center">
+                                                                <i class="mdi mdi-email-outline  h2 text-dark"></i>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="text-muted mb-0">Email Address</p>
+                                                                <h5 class="mb-0 font-14px">Kelvinnjuguna99@gmail.com</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-body border-top pb-2 pt-3">
+                                                <div class="row">
+                                                    <div class="col-12 mb-4">
+                                                        <div>
+                                                            <div class="d-flex">
+                                                                <div class="flex-shrink-0 me-3 align-self-center">
+                                                                    <i class="mdi mdi-account  h2 text-dark"></i>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <p class="text-muted mb-0">Patients Name</p>
+                                                                    <h5 class="mb-0 font-14px">Ian Macharia -</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="text-muted">
+                                                            <table class="table table-borderless mb-0 table-sm table-striped">
+                                                                <tbody>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Patient's ID</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">MPI/1234</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Phone No.</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">0704 549 859</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Email address</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">email@email.com</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Blood Group</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">A+</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Height</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">156 CM</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Gender</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">Male</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Religion</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">Chgristian</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Last Seen</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">14 Dec 2022, 08:29 AM</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Nationality</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">Kenyan</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Marital Status</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">Single</span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Occupation</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">Business Person</span></td>
+                                                                    </tr>
+
+
+                                                                    <tr>
+                                                                        <td class="pl-0 pb-0 text-muted"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i>Registered On</td>
+                                                                        <td class="pb-0"><span class="text-black fw-bold">10 Mar 2022</span></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-12 mb-3 mt-3">
+                                            <h4 class="card-title">Patient's Admission Form</h4>
+                                            <p class="card-text">Fill in the form below correctly so as to proceded with patient admission process.</p>
+                                            <a href="javascript: void(0);" class="btn btn-primary waves-effect waves-light admission-back"><i class="mdi mdi-arrow-left"></i> Back</a>
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-lg-6">
+                                            <div class="form-group mb-3">
+                                                <label for="">Admitting Physician</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Physician" data-live-search="true">
+                                                    <option value="amara-henry">Amara Henry</option>
+                                                    <option value="asher-jasper">Asher Jasper</option>
+                                                    <option value="milo-silas">Milo Silas</option>
+                                                    <option value="theodore-wyatt">Theodore Wyatt</option>
+                                                    <option value="aurora-ava">Aurora Ava</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-6">
+                                            <div class="form-group mb-3">
+                                                <label for="">Attending Physician</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Physician" data-live-search="true">
+                                                    <option value="amara-henry">Amara Henry</option>
+                                                    <option value="asher-jasper">Asher Jasper</option>
+                                                    <option value="milo-silas">Milo Silas</option>
+                                                    <option value="theodore-wyatt">Theodore Wyatt</option>
+                                                    <option value="aurora-ava">Aurora Ava</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Service Being Admitted for</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Service" data-live-search="true">
+                                                    <option value="surgical">Surgical service</option>
+                                                    <option value="cardiology">Cardiology service</option>
+                                                    <option value="gastroenterology">Gastroenterology service</option>
+                                                    <option value="oncology">Oncology service</option>
+                                                    <option value="psychiatry">Psychiatry service</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Priority</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Priority">
+                                                    <option value="emergency" data-content="<span class='badge rounded-pill bg-danger text-uppercase font-12px'>Emergency</span>">Emergency</option>
+                                                    <option value="urgent" data-content="<span class='badge rounded-pill bg-orange text-uppercase font-12px'>Urgent</span>">Urgent</option>
+                                                    <option value="elective" data-content="<span class='badge rounded-pill bg-warning text-uppercase font-12px'>Elective</span>">Elective</option>
+                                                    <option value="newborn" data-content="<span class='badge rounded-pill bg-success text-uppercase font-12px'>Newborn</span>">Newborn</option>
+                                                    <option value="trauma" data-content="<span class='badge rounded-pill bg-info text-uppercase font-12px'>Trauma</span>">Trauma</option>
+
+
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Admitting Diagnosis</label>
+                                                <input type="text" class="form-control" placeholder="Enter the Admitting Diagnosis">
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-lg-6">
+                                            <div class="form-group mb-3">
+                                                <label for="">Date Of Admission</label>
+                                                <input class="form-control" type="date" placeholder="Select Date" id="example-date-input">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-6">
+                                            <div class="form-group mb-3">
+                                                <label for="">Time Of Admission</label>
+                                                <input class="form-control" type="time" placeholder="Select Time" id="example-time-input">
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Accomodation Room</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Accomodation Room" data-live-search="true">
+                                                    <option value="general">General ward</option>
+                                                    <option value="icu">Intensive care unit</option>
+                                                    <option value="hdu">High dependency unit</option>
+                                                    <option value="isolation">Isolation ward</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Room Privacey Type</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Accomodation Room" data-live-search="true">
+                                                    <option value="Private">Private</option>
+                                                    <option value="Semi Private">Semi Private</option>
+                                                    <option value="Public">Public</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Bed Number</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Bed Number" data-live-search="true">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Emergency Contact</label>
+                                                <input class="form-control" type="text" placeholder="Emergency Contact" id="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Occupation</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Occupation">
+                                                    <option value="Employed">Employed</option>
+                                                    <option value="Self Employed">Self Employed</option>
+                                                    <option value="Business">Business</option>
+                                                    <option value="Unemployed">Unemployed</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-4">
+                                            <div class="form-group mb-3">
+                                                <label for="">Financial Class</label>
+                                                <select class="form-control selectpicker bg-white select-revenue financial-class" title="Select Financial Class">
+                                                    <option value="NHIF">NHIF</option>
+                                                    <option value="Self Care">Self Care</option>
+                                                    <option value="Private Insurance">Private Insurance</option>
+                                                    <option value="Charity Care">Charity Care</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 d-none insurance-fields-cont">
+                                            <div class="">
+                                                <div class="card border border-success">
+                                                    <div class="card-body row">
+                                                        <div class="col-6 col-sm-12 col-lg-3">
+                                                            <div class="form-group mb-3">
+                                                                <label for="">Insurance</label>
+                                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Insurance" data-live-search="true">
+                                                                    <option value="aar">AAR Insurance</option>
+                                                                    <option value="jubilee">Jubilee Insurance</option>
+                                                                    <option value="britam">Britam Insurance</option>
+                                                                    <option value="apa">APA Insurance</option>
+                                                                    <option value="madison">Madison Insurance</option>
+                                                              </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6 col-sm-12 col-lg-3">
+                                                            <div class="form-group mb-3">
+                                                                <label for="">Policy Number</label>
+                                                                <input class="form-control" type="text" placeholder="Enter Policy Number" id="">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6 col-sm-12 col-lg-3">
+                                                            <div class="form-group mb-3">
+                                                                <label for="">Subscriber</label>
+                                                                <input class="form-control" type="text" placeholder="Enter Policy Number" id="">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6 col-sm-12 col-lg-3">
+                                                            <div class="form-group mb-3">
+                                                                <label for="">Copay Amount</label>
+                                                                <input class="form-control" type="text" placeholder="Enter AMount" id="">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-6">
+                                            <div class="form-group mb-3">
+                                                <label for="">Attending Physician</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Physician" data-live-search="true">
+                                                    <option value="Dr. John Mwangi">Dr. John Mwangi</option>
+                                                    <option value="Dr. Mary Wanjiru">Dr. Mary Wanjiru</option>
+                                                    <option value="Dr. James Omondi">Dr. James Omondi</option>
+                                                    <option value="Dr. Grace Njeri">Dr. Grace Njeri</option>
+                                                    <option value="Dr. Samuel Kamau">Dr. Samuel Kamau</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-sm-12 col-lg-6">
+                                            <div class="form-group mb-3">
+                                                <label for="">Resident Referring Physician</label>
+                                                <select class="form-control selectpicker bg-white select-revenue" title="Select Physician" data-live-search="true">
+                                                    <option value="amara-henry">Amara Henry</option>
+                                                    <option value="asher-jasper">Asher Jasper</option>
+                                                    <option value="milo-silas">Milo Silas</option>
+                                                    <option value="theodore-wyatt">Theodore Wyatt</option>
+                                                    <option value="aurora-ava">Aurora Ava</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <table class="table table-nowrap table-sm table-editable-1">
+                                                <thead class="bg-light">
+                                                    <tr>
+                                                        <th style="width: 40px;">#</th>
+                                                        <th class="text-capitalize">Next Of Kin</th>
+                                                        <th>Relationship</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Address</th>
+                                                    </tr>
+                                                    <tbody>
+
+
+                                                        <tr>
+                                                            <td>1.</td>
+                                                            <td>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="Names">
+                                                            </td>
+                                                            <td>
+                                                                <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Relationshoip with Kin" data-live-search="true">
+                                                                    <option value="spouse">Spouse</option>
+                                                                    <option value="children">Children</option>
+                                                                    <option value="parents">Parents</option>
+                                                                    <option value="siblings">Siblings</option>
+                                                                    <option value="other-relatives">Other relatives</option>
+                                                              </select>
+                                                            </td>
+                                                            <td> <input type="text" class="form-control form-control-sm" placeholder="Telephone Number"></td>
+                                                            <td> <input type="text" class="form-control form-control-sm" placeholder="Address"></td>
+                                                        </tr>
+                                                        <tr class="cloneCharges d-none">
+                                                            <td style="width: 80px " class="categoryIndex ">#</td>
+
+                                                            <td>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="Names">
+                                                            </td>
+                                                            <td>
+                                                                <select class="form-control selectpicker bg-white select-revenue form-control-sm" title="Relationshoip with Kin" data-live-search="true">
+                                                                    <option value="spouse">Spouse</option>
+                                                                    <option value="children">Children</option>
+                                                                    <option value="parents">Parents</option>
+                                                                    <option value="siblings">Siblings</option>
+                                                                    <option value="other-relatives">Other relatives</option>
+                                                              </select>
+                                                            </td>
+                                                            <td> <input type="text" class="form-control form-control-sm" placeholder="Phone Number"></td>
+                                                            <td> <input type="text" class="form-control form-control-sm" placeholder="Address"></td>
+                                                        </tr>
+                                                    </tbody>
+
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="7" class="bg-light add-field-1 cursor-pointer text-black fw-bold">
+                                                                <span class="d-flex align-items-center "><i class="dripicons-plus mr-5 d-flex justify-content-center align-items-center font-21 "></i><span class="pl-5 ">Add Kin</span></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+
+                                                </thead>
+                                            </table>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button class="btn btn-primary w-100">Done</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <a href="#" target="_blank" type="button" class="btn btn-primary waves-effect waves-light w-100">
+                                <i class="mdi mdi-check font-size-16 align-middle me-2"></i> Submit Form
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- end of patient billing modal -->
+
+             <!-- Patient registration -->
+        <div class="modal fade " id="registerCustomer" data-backdrop="static" data-keyboard="false" tabindex="-1 " role="dialog " aria-labelledby="staticBackdropLabel " aria-hidden="true ">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content ">
+
+
+                    <div class="modal-header">
+                        <h5 class="modal-title text-capitalize" id="exampleModalLongTitle">Services Pricing</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                   <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label>Service Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Service Name">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label>Service Type</label>
+                                <select class="form-control selectpicker w-100 payment-method" data-live-search="true" title="Select Setvice Type">
+                                    <option value="Lab Test">Lab Test</option>
+                                    <option value="Radiology Exam">Radiology Exam</option>
+                                    <option value="Medical Procedure">Medical Procedure</option>
+
+                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label>Department</label>
+                                <select class="form-control selectpicker w-100 payment-method" data-live-search="true" title="Select Department">
+                                    <option value="Dental">Dental</option>
+                                    <option value="Casualty">Casualty</option>
+                                    <option value="Medical Procedure">Medical Procedure/Service</option>
+
+                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+
+                    <div class="modal-footer d-flex">
+                        <div class="d-none">
+                            <button data-toggle="modal" data-target="#subscribeModal" data-dismiss="modal" type="button" class="btn btn-link waves-effect">Back To Patient Search</button>
+                        </div>
+                        <div class="d-flex modal-next-prev-container">
+                            <button type="button" class="btn btn-outline-secondary btn-prev waves-effect waves-effect waves-light me-3">
+                                <i class="bx bx-left-arrow-alt font-size-16 align-middle me-2"></i> Previouse
+                            </button>
+
+                            <button type="button" class="btn btn-primary waves-effect waves-effect waves-light btn-next">
+                                Next <i class="bx bx-right-arrow-alt font-size-16 align-middle me-2"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-submit btn-success d-none ml-3 ms-3 waves-effect waves-effect waves-light btn-next">
+                                <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Submit Application
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Patient registration -->
+
+            <footer class="footer ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-sm-6 ">
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © Hospital Management Information System
+                        </div>
+                        <div class="col-sm-6 ">
+                            <div class="text-sm-end d-sm-block ">
+                                Developed by Levetot.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay "></div>
+
+    <script src="assets/libs/jquery/jquery.min.js "></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js "></script>
+    <script src="assets/libs/simplebar/simplebar.min.js "></script>
+    <script src="assets/libs/node-waves/waves.min.js "></script>
+
+
+
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js "></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js "></script>
+    <!-- Buttons examples -->
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js "></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js "></script>
+    <script src="assets/libs/jszip/jszip.min.js "></script>
+    <script src="assets/libs/pdfmake/build/pdfmake.min.js "></script>
+    <script src="assets/libs/pdfmake/build/vfs_fonts.js "></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js "></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js "></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js "></script>
+    <!-- numerals number formater -->
+    <script src="assets/libs/numeral/numeral.js "></script>
+
+    <!-- Responsive examples -->
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js "></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js "></script>
+
+    <!-- Bootstrap select -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js "></script>
+    <!-- Plugins js -->
+    <script src="assets/libs/dropzone/min/dropzone.min.js "></script>
+    <!-- Datatable init js -->
+    <script src="assets/js/pages/datatables.init.js "></script>
+
+    <!-- owl.carousel js -->
+    <script src="assets/libs/owl.carousel/owl.carousel.min.js"></script>
+
+    <!-- timeline init js -->
+    <script src="assets/js/pages/timeline.init.js"></script>
+
+    <!-- Table Editable plugin -->
+    <script src="assets/libs/table-edits/build/table-edits.min.js"></script>
+    <script src="assets/js/pages/table-editable.int.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js "></script>
+    <script src="assets/js/custom.js "></script>
+</body>
+
+
+<!-- By Ian Macharia   13:55:49 GMT -->
+
+</html>

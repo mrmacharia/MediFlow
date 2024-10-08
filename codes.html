@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<input type="text" id="search" placeholder="Enter a disease name">
+<button id="submit">Search</button>
+<table id="results">
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<script>
+$(document).ready(function() {
+$("#submit").click(function() {
+var terms = $("#search").val();
+// Replace fUF/4/tJ13PM2Ys0EKGtvxQ6O5fU2cNPLX//COssFiA= with your actual API key
+var url = "https://id.who.int/icd/entity/test?key=db948ab4-f77f-410d-9d44-bc7e9f1b3d3d_032fd6d6-6e4e-4102-972c-318072e2fe44";
+$.ajax({
+url: url,
+dataType: "json",
+success: function(data) {
+$("#results tbody").empty();
+var results = data.result;
+for (var i = 0; i < results.length; i++) {
+var code = results[i].id;
+var name = results[i].title;
+var row = "<tr><td>" + code + "</td><td>" + name + "</td></tr>";
+$("#results tbody").append(row);
+}
+}
+});
+});
+});
+</script>
+</body>
+</html>
